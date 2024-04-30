@@ -6,7 +6,7 @@ pipeline {
     }
 
     environment {
-        PATH = "${tool 'Maven 3'}/bin:${env.PATH}"
+        PATH = "${tool 'M3'}/bin:${env.PATH}"
     }
 
     stages {
@@ -59,7 +59,7 @@ pipeline {
 
     post {
         always {
-            cleanWs(cleanup: true, notFailBuild: true) // Use the cleanWs step for robust, cross-platform cleanup
+            cleanWs()
         }
         success {
             echo 'Project built successfully!'
