@@ -24,13 +24,13 @@ pipeline {
                      ], extensions: [], userRemoteConfigs: [
                         [url: 'https://github.com/nirmaangoyal/Multiple-Java-Versions-Building-a-CI-CD-Pipeline.git']
                      ])
-                     bat "mvn compile"
+                     sh "mvn compile"
                   }
                }
 
                stage('Test') {
                   steps {
-                     bat "mvn test"
+                     sh "mvn test"
                         junit allowEmptyResults: true,
                         testResults: '**/target/surefire-reports/TEST-{JDK_VERSION}.xml'
                   }
@@ -38,7 +38,7 @@ pipeline {
 
                stage('Package') {
                   steps {
-                     bat "mvn package"
+                     sh "mvn package"
                      archiveArtifacts artifacts: '**/*.jar',
                         allowEmptyArchive: true
                   }
@@ -46,7 +46,7 @@ pipeline {
 
                stage('Deploy') {
                   steps {
-                     bat "mvn deploy"
+                     sh "mvn deploy"
                   }
                }
             }
@@ -56,7 +56,7 @@ pipeline {
     post {
         always {
             // Clean up steps that need to be executed regardless of pipeline outcome
-            bat 'rmdir /S /Q *' // Clean up workspace
+            sh 'rmdir /S /Q *' // Clean up workspace
         }
         success {
             // Actions to perform if the pipeline is successful
