@@ -59,7 +59,7 @@ pipeline {
 
     post {
         always {
-            cleanWs()
+            cleanWs() // Removed unnecessary parameters
         }
         success {
             echo 'Project built successfully!'
