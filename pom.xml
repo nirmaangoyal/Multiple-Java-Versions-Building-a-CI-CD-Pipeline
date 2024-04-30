@@ -83,7 +83,7 @@
     <distributionManagement>
         <repository>
             <id>local-repo</id>
-            <url>file:///C:/ProgramData/Jenkins/.jenkins/workspace/multijava-pipelinemaven/dist</url>
+            <url>file:///var/lib/jenkins/workspace/MultiJavaPipelineMaven/dist</url>
         </repository>
     </distributionManagement>
 </project>
