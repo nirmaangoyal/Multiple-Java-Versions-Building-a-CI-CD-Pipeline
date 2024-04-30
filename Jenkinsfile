@@ -56,7 +56,8 @@ pipeline {
     post {
         always {
             // Clean up steps that need to be executed regardless of pipeline outcome
-            sh 'rmdir /S /Q *' // Clean up workspace
+            sh 'rm -rf Jenkinsfile effective-pom.xml pom.xml src target'
+
         }
         success {
             // Actions to perform if the pipeline is successful
